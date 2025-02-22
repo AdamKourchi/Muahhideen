@@ -1,0 +1,40 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Handle X-XSRF-Token Header
+    RewriteCond %{HTTP:x-xsrf-token} .
+    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Serve Angular Static Files
+    RewriteCond %{REQUEST_URI} ^/angular/.*\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|otf|json|txt|html)$ [NC]
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule . - [L]
+
+    # Redirect Angular Routes to index.html (fixes 404 issue)
+    RewriteCond %{REQUEST_URI} ^/angular(/.*)?$ [NC]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^angular(/.*)?$ /angular/index.html [L,QSA]
+
+    # Send Other Requests To Laravel Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    # Set Proper MIME Types
+    AddType application/javascript .js
+    AddType text/css .css
+</IfModule>
