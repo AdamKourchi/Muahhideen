@@ -18,8 +18,8 @@ COPY . .
 # Install Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Expose the necessary port
-EXPOSE 9000
+# Expose port 80 for HTTP traffic
+EXPOSE 80
 
-# Start PHP-FPM server
-CMD ["php-fpm"]
+# Start PHP built-in server on port 80
+CMD php artisan serve --host=0.0.0.0 --port=80
