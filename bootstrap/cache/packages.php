@@ -1,28 +1,4 @@
 <?php return array (
-  'barryvdh/laravel-dompdf' => 
-  array (
-    'aliases' => 
-    array (
-      'PDF' => 'Barryvdh\\DomPDF\\Facade\\Pdf',
-      'Pdf' => 'Barryvdh\\DomPDF\\Facade\\Pdf',
-    ),
-    'providers' => 
-    array (
-      0 => 'Barryvdh\\DomPDF\\ServiceProvider',
-    ),
-  ),
-  'barryvdh/laravel-snappy' => 
-  array (
-    'aliases' => 
-    array (
-      'PDF' => 'Barryvdh\\Snappy\\Facades\\SnappyPdf',
-      'SnappyImage' => 'Barryvdh\\Snappy\\Facades\\SnappyImage',
-    ),
-    'providers' => 
-    array (
-      0 => 'Barryvdh\\Snappy\\ServiceProvider',
-    ),
-  ),
   'laravel/pail' => 
   array (
     'providers' => 
@@ -49,6 +25,32 @@
     'providers' => 
     array (
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
+    ),
+  ),
+  'nativephp/electron' => 
+  array (
+    'aliases' => 
+    array (
+      'Updater' => 'Native\\Electron\\Facades\\Updater',
+    ),
+    'providers' => 
+    array (
+      0 => 'Native\\Electron\\ElectronServiceProvider',
+    ),
+  ),
+  'nativephp/laravel' => 
+  array (
+    'aliases' => 
+    array (
+      'Dock' => 'Native\\Laravel\\Facades\\Dock',
+      'Window' => 'Native\\Laravel\\Facades\\Window',
+      'Process' => 'Native\\Laravel\\Facades\\Process',
+      'Clipboard' => 'Native\\Laravel\\Facades\\Clipboard',
+      'ContextMenu' => 'Native\\Laravel\\Facades\\ContextMenu',
+    ),
+    'providers' => 
+    array (
+      0 => 'Native\\Laravel\\NativeServiceProvider',
     ),
   ),
   'nesbot/carbon' => 

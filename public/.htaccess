@@ -37,4 +37,7 @@
     # Set Proper MIME Types
     AddType application/javascript .js
     AddType text/css .css
+    
+    
+
 </IfModule>

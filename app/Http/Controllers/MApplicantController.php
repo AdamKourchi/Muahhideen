@@ -11,7 +11,8 @@ class MApplicantController extends Controller
    
     public function index()
     {
-        $m_applicants = mApplicant::all();
+        $m_applicants = MApplicant::all();
+        // return view('test', compact('m_applicants'));
         return response()->json($m_applicants);
     }
 

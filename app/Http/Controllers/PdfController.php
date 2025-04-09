@@ -16,8 +16,9 @@ class PdfController extends Controller
     {
         // Fetch data
         $data = MApplicant::findOrFail($id);
-    
-        // Load the HTML view
+
+        // // Load the HTML view
+
         $html = view('pdf.applicantDocument', compact('data'))->render();
     
         // Initialize mPDF with Arabic support
@@ -50,6 +51,7 @@ class PdfController extends Controller
 
 
  }
+
 
 
 

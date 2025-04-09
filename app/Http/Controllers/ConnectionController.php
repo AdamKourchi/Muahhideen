@@ -92,6 +92,11 @@ class ConnectionController extends Controller
             'remarks' => ''
         ]);
 
+        $femaleApplicant = FApplicant::find($femaleId);
+        
+        $femaleApplicant->document_status = false;
+        $femaleApplicant->save();
+
         $maleApplicant->document_status = false;
         $maleApplicant->save();
 

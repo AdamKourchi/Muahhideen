@@ -22,6 +22,8 @@ class Connection extends Model
         'remarks'
     ];
 
+    
+
     public function mApplicant()
     {
         return $this->belongsTo(MApplicant::class);
