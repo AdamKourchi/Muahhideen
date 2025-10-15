@@ -1,0 +1,67 @@
+const SECURE_TOKEN = "123";
+                      
+// Main function to get all rows from active sheet (without header)
+function getAllRowsFromActiveSheet() {
+  const sheet = SpreadsheetApp.getActiveSheet();
+  const data = sheet.getDataRange().getValues();
+  
+  // Remove header row (first row)
+  const dataWithoutHeader = data.slice(1);
+  
+  console.log("Total rows retrieved:", dataWithoutHeader.length);
+  console.log("Data:", dataWithoutHeader);
+  
+  return dataWithoutHeader;
+}
+
+
+
+function handleRequest(e) {
+  try {
+    const providedToken = e.parameter.token ;
+
+    
+    if (!providedToken) {
+      return ContentService
+        .createTextOutput(JSON.stringify({
+          error: "Token required",
+          message: `Please provide a valid token, ${providedToken}`
+        }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+    
+    // Validate token
+    if (providedToken !== SECURE_TOKEN) {
+      return ContentService
+        .createTextOutput(JSON.stringify({
+          error: "Invalid token",
+          message: "The provided token is not valid"
+        }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+    
+    // Token is valid, proceed with data retrieval
+    const data = getAllRowsFromActiveSheet();
+    
+    return ContentService
+      .createTextOutput(JSON.stringify({
+        success: true,
+        data: data,
+        count: data.length
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
+      
+  } catch (error) {
+    return ContentService
+      .createTextOutput(JSON.stringify({
+        error: "Server error",
+        message: error.toString()
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+function doGet(e) {
+  return handleRequest(e);
+}
+

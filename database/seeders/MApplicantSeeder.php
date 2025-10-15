@@ -13,6 +13,6 @@ class MApplicantSeeder extends Seeder
      */
     public function run(): void
     {
-        MApplicant::factory()->count(50)->create(); // Creates 50 sample male applicants
+        MApplicant::factory()->count(50)->create(); 
     }
 }

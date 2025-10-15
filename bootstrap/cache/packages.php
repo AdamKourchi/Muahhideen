@@ -27,6 +27,17 @@
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
     ),
   ),
+  'maatwebsite/excel' => 
+  array (
+    'aliases' => 
+    array (
+      'Excel' => 'Maatwebsite\\Excel\\Facades\\Excel',
+    ),
+    'providers' => 
+    array (
+      0 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
+    ),
+  ),
   'nativephp/electron' => 
   array (
     'aliases' => 
@@ -43,10 +54,21 @@
     'aliases' => 
     array (
       'Dock' => 'Native\\Laravel\\Facades\\Dock',
+      'Menu' => 'Native\\Laravel\\Facades\\Menu',
+      'Shell' => 'Native\\Laravel\\Facades\\Shell',
+      'Screen' => 'Native\\Laravel\\Facades\\Screen',
+      'System' => 'Native\\Laravel\\Facades\\System',
       'Window' => 'Native\\Laravel\\Facades\\Window',
+      'MenuBar' => 'Native\\Laravel\\Facades\\MenuBar',
       'Process' => 'Native\\Laravel\\Facades\\Process',
+      'Settings' => 'Native\\Laravel\\Facades\\Settings',
       'Clipboard' => 'Native\\Laravel\\Facades\\Clipboard',
       'ContextMenu' => 'Native\\Laravel\\Facades\\ContextMenu',
+      'QueueWorker' => 'Native\\Laravel\\Facades\\QueueWorker',
+      'ChildProcess' => 'Native\\Laravel\\Facades\\ChildProcess',
+      'Notification' => 'Native\\Laravel\\Facades\\Notification',
+      'PowerMonitor' => 'Native\\Laravel\\Facades\\PowerMonitor',
+      'GlobalShortcut' => 'Native\\Laravel\\Facades\\GlobalShortcut',
     ),
     'providers' => 
     array (
