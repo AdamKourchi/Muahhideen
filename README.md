@@ -27,3 +27,14 @@ I also created an **automated migration script** that imports candidate form ent
 | 💾 SQLite | Lightweight local database |
 | 🎨 Tailwind CSS | Styling and responsive layout |
 | 🧩 Ant Design | UI components and interface structure |
+
+<h2>⚙️ Installation</h2>
+
+<h3>Development Setup</h3>
+
+```bash
+git clone https://github.com/AdamKourchi/Muahhideen.git
+cd Muahhideen
+composer i
+php artisan migrate:fresh
+php artisan native:serve
